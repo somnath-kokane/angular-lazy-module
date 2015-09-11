@@ -1,3 +1,3 @@
 
 angular
-	.module('hire.applicant', []);
+    .module('hire.applicant', []);
