@@ -3,7 +3,7 @@ angular
     .module('app', ['ui.router', 'oc.lazyLoad'])
     .config(['$ocLazyLoadProvider', '$stateProvider',
         function config($ocLazyLoadProvider, $stateProvider){
-            var env = 'prod';
+            var env = 'dev';
 
             $ocLazyLoadProvider.config({
                 jsLoader: requirejs,
@@ -31,7 +31,7 @@ angular
                                     files: files
                                 });
                             }]
-                        })
+                        });
                     }
 
                     $stateProvider.state(name, defination);

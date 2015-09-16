@@ -3,17 +3,31 @@ style.css
 ----------------
 style.css
 
-main.require.js
+main.bundle.js
 ----------------
-vendor/angular.js
-vendor/angular-ui-router.js
-vendor/ocLazyLoad.require.js
+main.bundle.js
 hire/applicant/applicant.require.js
 hire/job/job.require.js
 hire/hire.require.js
 app.config.js
 app.require.js
 main.require.js
+
+lib.bundle.js
+----------------
+lib.bundle.js
+vendor/angular.js
+vendor/angular-ui-router.js
+vendor/ocLazyLoad.require.js
+vendor/angular-material.js
+vendor/angular-aria.js
+vendor/angular-animate.js
+
+plugin.bundle.js
+----------------
+plugin.bundle.js
+vendor/lodash.js
+vendor/moment.js
 
 hire/hire.bundle.js
 ----------------

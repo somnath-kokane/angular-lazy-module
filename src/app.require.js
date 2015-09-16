@@ -4,7 +4,8 @@
     if(typeof module !== "undefined" && 
         typeof exports !== "undefined" && 
         module.exports === exports){
-        module.exports = factory(require('./hire/hire.require'));
+        module.exports = factory(
+            require('./hire/hire.require'));
     } else {
         define([
             'hire/hire.require',
@@ -23,7 +24,7 @@
                 template: '<p>Home</p>'
             }]
         ]
-    }
+    };
 
 }));
 

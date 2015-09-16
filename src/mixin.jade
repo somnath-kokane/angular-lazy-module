@@ -1,0 +1,80 @@
+
+mixin md-input(name, label, model, form)
+    md-input-container
+        label=label
+        input(
+            name=name
+            ng-model=model
+            type=attributes.type || 'text')&attributes(attributes)
+        if form
+        div(ng-messages=form+'.'+name+'.$error')
+            if attributes.required
+            div(ng-message='required') This field is required!
+
+mixin md-button(label, icon)
+    md-button(class=icon && 'md-icon-button'
+        )&attributes(attributes)
+        if icon
+            ng-md-icon(area-label=label icon=icon fill='white')
+        else
+            =label
+
+mixin md-datepicker(name, label, model)
+    md-datepicker(ng-model=model
+        md-placeholder=label
+        name=name)
+
+mixin form(form)
+    form(name=form)&attributes(attributes)
+        block
+
+mixin md-layout(layout)
+    div(layout layout-sm="column")&attributes(attributes)
+        block
+
+mixin md-content()
+    md-content(layout-padding layout="row"
+        layout-sm="column")&attributes(attributes)
+        block
+
+mixin md-sidenav-left()
+    md-sidenav(
+        class="md-sidenav-left md-whiteframe-z2"
+        md-is-locked-open="$mdMedia('gt-md')"
+        md-component-id="left")&attributes(attributes)
+        if block
+        block
+
+mixin md-sidenav-right()
+    md-sidenav(
+        class="md-sidenav-right md-whiteframe-z2"
+        md-component-id="right")&attributes(attributes)
+        if block
+        block
+
+mixin md-autocomplete(expr, q, key)
+    md-autocomplete(
+        md-items='item in '+ expr,
+        md-item='item'+ (key ? '.'+key : ''),
+        md-search-text=q,
+        md-min-length="0",
+        )&attributes(attributes)
+        if block
+        md-item-template
+            block
+
+mixin md-tabs(expr, index, key, include)
+    md-tabs(
+        md-selected=index
+        md-border-bottom md-autoselect)&attributes(attributes)
+        md-tab(
+            ng-repeat='tab in ::'+ expr
+            label='{{tab'+(key ? '.'+key : '')+'}}')
+            if include
+                div(ng-if='$index ==='+index, ng-include=include)
+                
+
+mixin md-toolbar()
+    md-toolbar()&attributes(attributes)
+        div(class='md-toolbar-tools')
+            block
