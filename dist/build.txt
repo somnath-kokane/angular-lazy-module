@@ -3,9 +3,8 @@ style.css
 ----------------
 style.css
 
-main.bundle.js
+main.require.js
 ----------------
-main.bundle.js
 hire/applicant/applicant.require.js
 hire/job/job.require.js
 hire/hire.require.js

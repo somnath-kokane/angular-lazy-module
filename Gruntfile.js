@@ -3,13 +3,11 @@ var requirejsConfig = require('./src/main.require');
 
 var app = require('./src/app.require');
 var modules = [{
-    name: "main.bundle",
-    include: ['main.require'],
+    name: "main.require",
+    include: [],
 }];
 
 modules = modules.concat(requirejsConfig.modules);
-
-console.log('modules', modules);
 
 initModule(app);
 
@@ -50,7 +48,7 @@ function gruntTasks(grunt) {
                     dir: "./dist",
                     optimize: 'uglify2',
                     optimizeCss: 'standard',
-                    generateSourceMaps: false,
+                    generateSourceMaps: true,
                     preserveLicenseComments: false,
                     modules: modules,
                     done: function(done, output) {

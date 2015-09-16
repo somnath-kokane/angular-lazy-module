@@ -1,8 +1,8 @@
 
 (function(config){
 
-    var process = this.process || {env: {APP_ENV: 'dev'}};
-    var APP_ENV = process.env.APP_ENV;
+    this.process = this.process || {env: {APP_ENV: 'prod'}};
+    var APP_ENV = this.process.env.APP_ENV;
     var devDeps = [], prodDeps = [], deps = [];
     
     if(typeof module !== "undefined" && 
@@ -10,27 +10,26 @@
         module.exports === exports){
         module.exports = config;
     } else {
-        requirejs.config(config);
-        
         config.modules.forEach(function(item){
             prodDeps.push(item.name);
             (item.include).forEach(function(include){
-                deps.push(include);
+                devDeps.push(include);
             });
         });
 
         if(APP_ENV === 'dev'){
             deps = deps.concat(devDeps);
         } else {
-            deps = deps.contact(prodDeps);
+            deps = deps.concat(prodDeps);
         }
-
-        require(deps, function(){
-            require(['app.require'], function(){
-                angular.bootstrap(document, ['app']);
+        angular.element(document).ready(function(){
+            requirejs.config(config);
+            requirejs(deps, function(){
+                requirejs(['app.require'], function(){
+                    angular.bootstrap(document, ['app']);
+                });
             });
         });
-        
     }
 
 }.call(this, function(){

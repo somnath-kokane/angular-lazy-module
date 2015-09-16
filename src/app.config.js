@@ -3,7 +3,10 @@ angular
     .module('app', ['ui.router', 'oc.lazyLoad'])
     .config(['$ocLazyLoadProvider', '$stateProvider',
         function config($ocLazyLoadProvider, $stateProvider){
-            var env = 'dev';
+            
+            var env = window.process.env.APP_ENV;
+
+            console.log('env', env);
 
             $ocLazyLoadProvider.config({
                 jsLoader: requirejs,

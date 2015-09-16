@@ -1,1 +1,2 @@
 define("hire/job/job.bundle",function(){}),angular.module("hire.job",[]),define("hire/job/job.config",function(){}),angular.module("hire.job").controller("JobController",["$scope","JobService",function(o,e){o.msg=e.say("Job Module")}]),define("hire/job/job.controller",function(){}),angular.module("hire.job").factory("JobService",["$q",function(o){return{say:function(o){return o}}}]),define("hire/job/job.service",function(){});
+//# sourceMappingURL=job.bundle.js.map
